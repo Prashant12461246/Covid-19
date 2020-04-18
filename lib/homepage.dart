@@ -85,6 +85,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
+                Image.asset('assets/1.jpg',height: 50.0,width: 100.0,),
                 Text("INDIA",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                 Container(
                   padding: EdgeInsets.all(10.0),

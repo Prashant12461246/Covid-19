@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WorldwidePannel extends StatelessWidget {
-
   final Map worldData;
-
   const WorldwidePannel({Key key, this.worldData}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
