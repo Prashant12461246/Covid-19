@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:ui_intern/datasource.dart';
-import 'package:ui_intern/pannels/worldwidepannel.dart';
+import './datasource.dart';
+import './pannels/worldwidepannel.dart';
 import 'package:http/http.dart' as http;
 
 Map worldData;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_intern/datasource.dart';
-import 'homepage.dart';
+import './datasource.dart';
+import './homepage.dart';
 
 void main(){
   runApp(MyApp());
