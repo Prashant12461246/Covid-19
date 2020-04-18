@@ -22,6 +22,7 @@ class WorldwidePannel extends StatelessWidget {
             panelColor: Colors.red[100],
             textColor: Colors.red,
             count: worldData["statewise"][0]["confirmed"],
+            increase: worldData["statewise"][0]['deltaconfirmed'],
           ),
           StatusPannel(
             title: "ACTIVE",
@@ -34,12 +35,14 @@ class WorldwidePannel extends StatelessWidget {
             panelColor: Colors.green[100],
             textColor: Colors.green,
             count: worldData["statewise"][0]['recovered'],
+            increase: worldData["statewise"][0]['deltarecovered'],
           ),
           StatusPannel(
             title: "DEATHS",
             panelColor: Colors.grey[100],
             textColor: Colors.grey,
             count: worldData["statewise"][0]['deaths'],
+            increase: worldData["statewise"][0]['deltadeaths'],
           ),
         ],
       ),
@@ -53,8 +56,9 @@ class StatusPannel extends StatelessWidget {
   final Color textColor;
   final String title;
   final String count;
+  final String increase;
 
-  const StatusPannel({Key key, this.panelColor, this.textColor, this.title, this.count}) : super(key: key);
+  const StatusPannel({Key key, this.panelColor, this.textColor, this.title, this.count,this.increase='0'}) : super(key: key);
 
 
   @override
@@ -68,6 +72,7 @@ class StatusPannel extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Text('+'+increase,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12,color: textColor),),
           Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColor),),
           Text(count,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColor),),
         ],
