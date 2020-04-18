@@ -16,9 +16,11 @@ class _HomePageState extends State<HomePage> {
 
   fetchWorldWideData()async{
     
-    http.Response response = await http.get('https://corona.lmao.ninja/all');
+    http.Response response = await http.get('https://api.covid19india.org/data.json');
     setState(() {
-      worldData = jsonDecode(response.body);
+     
+      worldData = json.decode(jsonsDataString);
+
     });
   }
 
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-            child: Text("Worldwide",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+            child: Text("india",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
           ),
           worldData == null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,)
         ],
