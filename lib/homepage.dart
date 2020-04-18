@@ -50,8 +50,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("COVID-19 TRACKER"),
+             title:Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                  Image.asset(
+                 'assets/icon.png',
+                  fit: BoxFit.contain,
+                  height: 32,
+              ),
+              Container(
+                  padding: const EdgeInsets.all(20.0), child: Text('Covid 19 Tracker'))
+            ],
+
+          )
       ),
       body: SingleChildScrollView(child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +103,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Text("Most affected states",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
           ),
-          stateData == null?CircularProgressIndicator():MostAffectedPanel(stateData: stateData,),
+          stateData == null?CircularProgressIndicator(backgroundColor: Colors.blue,):MostAffectedPanel(stateData: stateData,),
         ],
       ),),
     );
