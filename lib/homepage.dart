@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:ui_intern/datasource.dart';
+import 'package:ui_intern/pannels/mostaffectedstates.dart';
 import 'package:ui_intern/pannels/worldwidepannel.dart';
 import 'package:http/http.dart' as http;
 
-Map worldData;
+//Map worldData;
+//List stateData;
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,21 +15,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+  Map worldData;
   fetchWorldWideData()async{
     
     http.Response response = await http.get('https://api.covid19india.org/data.json');
     setState(() {
      
-      worldData = json.decode(jsonsDataString);
+      worldData = json.decode(response.body);
 
     });
   }
+  List stateData;
+  fetchstateData()async{
+    
+    http.Response response = await http.get('https://api.covid19india.org/data.json');
+    setState(() { 
+      stateData = json.decode(response.body);
+    });
+  }
+
+
 
   @override
   void initState() { 
-    super.initState();
-    fetchWorldWideData();  
+    fetchWorldWideData(); 
+    fetchstateData(); 
+    super.initState();     
   }
 
   @override
@@ -55,9 +68,27 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-            child: Text("india",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text("INDIA",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: primaryblack,
+                    borderRadius: BorderRadius.circular(10.0),
+
+                  ),
+                  child: Text("Regional",style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),)),
+              ],
+            ),
           ),
-          worldData == null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,)
+          worldData == null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text("Most affected states",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+          ),
+          stateData == null?CircularProgressIndicator():MostAffectedPanel(stateData: stateData,),
         ],
       ),),
     );
