@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:animated_splash/animated_splash.dart';
+
 import './datasource.dart';
 import './homepage.dart';
 
@@ -22,7 +24,14 @@ class _MyappState extends State<MyApp> {
         fontFamily: 'circular',
         primaryColor: primaryblack,
       ),
-      home: HomePage(),
-    );
+      home: AnimatedSplash(
+              imagePath: 'assets/icon.png',
+              home: HomePage(),
+              duration: 300,
+              type: AnimatedSplashType.StaticDuration,
+              
+            ),
+);
+    
   }
 }
