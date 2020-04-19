@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ui_intern/pannels/infopanel.dart';
 import './pannels/statewisedata.dart';
-
 import './datasource.dart';
 import './pannels/mostaffectedstates.dart';
 import './pannels/worldwidepannel.dart';
@@ -133,6 +133,8 @@ class _HomePageState extends State<HomePage> {
             child: Text("Most affected states",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
           ),
           stateData == null?CircularProgressIndicator(backgroundColor: Colors.blue,):MostAffectedPanel(stateData: stateData,),
+          InfoPanel(),
+          SizedBox(height: 50.0,),
         ],
       ),),
     );
