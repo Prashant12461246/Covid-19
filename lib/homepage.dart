@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import './pannels/statewisedata.dart';
 
 import './datasource.dart';
 import './pannels/mostaffectedstates.dart';
@@ -114,7 +115,15 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(10.0),
 
                   ),
-                  child: Text("Regional",style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),)),
+                  child: GestureDetector(child: Text("Regional",style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
+                  
+                  ),
+                  onTap:(){
+                      
+                      Navigator.push(context,new MaterialPageRoute(builder: (context)=>Statewisedata(stateData: stateData,)));
+                  },
+                  )
+                  ),
               ],
             ),
           ),
