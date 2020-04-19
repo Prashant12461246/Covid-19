@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import './datasource.dart';
 import './pannels/mostaffectedstates.dart';
@@ -59,7 +60,26 @@ class _HomePageState extends State<HomePage> {
                   height: 32,
               ),
               Container(
-                  padding: const EdgeInsets.all(20.0), child: Text('Covid 19 Tracker'))
+                  padding: const EdgeInsets.all(20.0), child: Text('Covid 19 Tracker')),
+              Container(
+                padding: EdgeInsets.only(left: 50),
+                alignment: Alignment.topRight,
+                child: IconButton(icon: Icon(Icons.refresh), onPressed: (){
+                 
+                    fetchWorldWideData();
+                    fetchstateData();
+                    Fluttertoast.showToast(
+                        msg: "Data Updated",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIos: 2,
+                        backgroundColor: Colors.blue[50],
+                        textColor: Colors.black,
+                        fontSize: 16.0
+    );
+                 
+                })
+              )
             ],
 
           )
