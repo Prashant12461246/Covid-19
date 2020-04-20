@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             worldData == null
-                ? Container()
+                ? Center(child: CircularProgressIndicator())
                 : WorldwidePannel(
                     worldData: worldData,
                   ),
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             stateData == null
-                ? Container()
+                ? Center(child: CircularProgressIndicator())
                 : MostAffectedPanel(
                     stateData: stateData,
                   ),

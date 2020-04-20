@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:get_it/get_it.dart';
 
-class AboutUs extends StatelessWidget {
+class CallsAndMessagesService {
+  void sendEmail(String email) => launch("mailto:$email");
+}
+
+GetIt locator = GetIt();
+
+void setupLocator() {
+  locator.registerSingleton(CallsAndMessagesService());
+}
+
+class AboutUs extends StatefulWidget {
+  @override
+  _AboutUsState createState() => _AboutUsState();
+}
+
+class _AboutUsState extends State<AboutUs> {
+  final CallsAndMessagesService _service = locator<CallsAndMessagesService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +33,8 @@ class AboutUs extends StatelessWidget {
               margin: EdgeInsets.all(20),
               width: double.infinity,
               child: Text(
-                'Devlopers',
-                textAlign: TextAlign.left,
+                'DEVELOPERS',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -52,13 +70,14 @@ class AboutUs extends StatelessWidget {
                         'Follow Us On:',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontSize: 20,
                         ),
                       ),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.instagram),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch(
+                                'http://www.instagram.com/prashant_vaddoriya');
                           }),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.twitter),
@@ -68,7 +87,12 @@ class AboutUs extends StatelessWidget {
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.github),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch('http://www.github.com//prashant12461246');
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.mail),
+                          onPressed: () {
+                            _service.sendEmail('pvaddoriya1246@gmail.com');
                           }),
                     ],
                   )
@@ -104,24 +128,29 @@ class AboutUs extends StatelessWidget {
                         'Follow Us On:',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontSize: 20,
                         ),
                       ),
                       IconButton(
-                          icon: FaIcon(FontAwesomeIcons.instagram),
+                          icon: Icon(FontAwesomeIcons.instagram),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch('http://www.instagram.com/ujas.6520');
                           }),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.twitter),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch('http://www.twitter.com/ujaspatel17');
                           }),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.github),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch('http://www.github.com/ujas3279');
                           }),
+                      IconButton(
+                          icon: Icon(Icons.email),
+                          onPressed: () {
+                            _service.sendEmail('Ujas6520@gmail.com');
+                          })
                     ],
                   )
                 ],
@@ -132,7 +161,9 @@ class AboutUs extends StatelessWidget {
               child: FloatingActionButton.extended(
                   icon: FaIcon(FontAwesomeIcons.github),
                   backgroundColor: Colors.black,
-                  onPressed: null,
+                  onPressed: () {
+                    launch('http://www.github.com/prashant12461246/covid-19');
+                  },
                   label: Text('Contribute On GitHub')),
             )
           ],

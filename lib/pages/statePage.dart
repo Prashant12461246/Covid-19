@@ -81,13 +81,14 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltaconfirmed'] ,
+                                                    ['deltaconfirmed'],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.red,
                                                 fontSize: 13.0),
                                           ),
-                                          Text(stateData[index+1]['confirmed']),
+                                          Text(stateData[index + 1]
+                                              ['confirmed']),
                                           Text(
                                             'CONFIRMED',
                                             style: TextStyle(
@@ -104,13 +105,14 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltarecovered'] ,
+                                                    ['deltarecovered'],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.green,
                                                 fontSize: 13.0),
                                           ),
-                                          Text(stateData[index+1]['recovered']),
+                                          Text(stateData[index + 1]
+                                              ['recovered']),
                                           Text(
                                             'RECOVERED',
                                             style: TextStyle(
@@ -155,13 +157,13 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltadeaths'] ,
+                                                    ['deltadeaths'],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.grey,
                                                 fontSize: 13.0),
                                           ),
-                                          Text(stateData[index+1]['deaths']),
+                                          Text(stateData[index + 1]['deaths']),
                                           Text(
                                             '   DEATHS   ',
                                             style: TextStyle(
