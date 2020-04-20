@@ -40,7 +40,7 @@ class _StatePageState extends State<StatePage> {
           : ListView.builder(
               itemBuilder: (context, index) {
                 return Container(
-                  height: 130,
+                  height: 140,
                   margin:
                       EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                   decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -81,15 +81,13 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltaconfirmed'] +
-                                                ' ' +
-                                                stateData[index + 1]
-                                                    ['confirmed'],
+                                                    ['deltaconfirmed'] ,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.red,
                                                 fontSize: 13.0),
                                           ),
+                                          Text(stateData[index+1]['confirmed']),
                                           Text(
                                             'CONFIRMED',
                                             style: TextStyle(
@@ -106,15 +104,13 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltarecovered'] +
-                                                ' ' +
-                                                stateData[index + 1]
-                                                    ['recovered'],
+                                                    ['deltarecovered'] ,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.green,
                                                 fontSize: 13.0),
                                           ),
+                                          Text(stateData[index+1]['recovered']),
                                           Text(
                                             'RECOVERED',
                                             style: TextStyle(
@@ -135,6 +131,7 @@ class _StatePageState extends State<StatePage> {
                                       color: Colors.blue[100],
                                       child: Column(
                                         children: <Widget>[
+                                          Text(""),
                                           Text(
                                             stateData[index + 1]['active'],
                                             style: TextStyle(
@@ -158,14 +155,13 @@ class _StatePageState extends State<StatePage> {
                                           Text(
                                             '+' +
                                                 stateData[index + 1]
-                                                    ['deltadeaths'] +
-                                                ' ' +
-                                                stateData[index + 1]['deaths'],
+                                                    ['deltadeaths'] ,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.grey,
                                                 fontSize: 13.0),
                                           ),
+                                          Text(stateData[index+1]['deaths']),
                                           Text(
                                             '   DEATHS   ',
                                             style: TextStyle(
