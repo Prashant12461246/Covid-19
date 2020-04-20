@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ui_intern/pages/statePage.dart';
 import 'package:ui_intern/pannels/infopanel.dart';
 import './pannels/statewisedata.dart';
 import './datasource.dart';
@@ -120,20 +121,22 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onTap:(){
                       
-                      Navigator.push(context,new MaterialPageRoute(builder: (context)=>Statewisedata(stateData: stateData,)));
+                      Navigator.push(context,new MaterialPageRoute(builder: (context)=>StatePage()));
                   },
                   )
                   ),
               ],
             ),
           ),
-          worldData == null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,),
+          worldData == null?Container():WorldwidePannel(worldData: worldData,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Text("Most affected states",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
           ),
-          stateData == null?CircularProgressIndicator(backgroundColor: Colors.blue,):MostAffectedPanel(stateData: stateData,),
+          stateData == null?Container():MostAffectedPanel(stateData: stateData,),
           InfoPanel(),
+          SizedBox(height: 20.0,),
+          Center(child: Text("WE ARE TOGETHER IN THE FIGHT",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),)),
           SizedBox(height: 50.0,),
         ],
       ),),
