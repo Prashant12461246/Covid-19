@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_intern/pages/info.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../datasource.dart';
@@ -94,7 +95,7 @@ class InfoPanel extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => FAQPage()));
+                  context, MaterialPageRoute(builder: (context) => AboutUs()));
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
