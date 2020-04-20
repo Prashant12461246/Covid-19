@@ -3,8 +3,10 @@ import 'package:animated_splash/animated_splash.dart';
 
 import './datasource.dart';
 import './homepage.dart';
+import './pages/info.dart';
 
-void main(){
+void main() {
+  setupLocator();
   runApp(MyApp());
 }
 
@@ -14,7 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyappState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,13 +26,11 @@ class _MyappState extends State<MyApp> {
         primaryColor: primaryblack,
       ),
       home: AnimatedSplash(
-              imagePath: 'assets/icon.png',
-              home: HomePage(),
-              duration: 300,
-              type: AnimatedSplashType.StaticDuration,
-              
-            ),
-);
-    
+        imagePath: 'assets/icon.png',
+        home: HomePage(),
+        duration: 300,
+        type: AnimatedSplashType.StaticDuration,
+      ),
+    );
   }
 }
