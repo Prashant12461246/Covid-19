@@ -10,9 +10,7 @@ class WorldwidePannel extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 2
-        ),
+            crossAxisCount: 2, childAspectRatio: 2),
         children: <Widget>[
           StatusPannel(
             title: "CONFIRMED",
@@ -48,15 +46,20 @@ class WorldwidePannel extends StatelessWidget {
 }
 
 class StatusPannel extends StatelessWidget {
-
   final Color panelColor;
   final Color textColor;
   final String title;
   final String count;
   final String increase;
 
-  const StatusPannel({Key key, this.panelColor, this.textColor, this.title, this.count,this.increase='0'}) : super(key: key);
-
+  const StatusPannel(
+      {Key key,
+      this.panelColor,
+      this.textColor,
+      this.title,
+      this.count,
+      this.increase = '0'})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,16 +68,27 @@ class StatusPannel extends StatelessWidget {
       margin: EdgeInsets.all(10),
       height: 80,
       color: panelColor,
-      width: width/2,
+      width: width / 2,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('+'+increase,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12,color: textColor),),
-          Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColor),),
-          Text(count,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColor),),
+          Text(
+            '+' + increase,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 12, color: textColor),
+          ),
+          Text(
+            title,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 16, color: textColor),
+          ),
+          Text(
+            count,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 16, color: textColor),
+          ),
         ],
       ),
     );
-
   }
 }

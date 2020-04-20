@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_intern/datasource.dart';
+
+import '../datasource.dart';
 
 class FAQPage extends StatelessWidget {
   @override
