@@ -27,7 +27,10 @@ class MostAffectedPanel extends StatelessWidget {
                   width: 10,
                 ),
                 Text(
-                  'Deaths:' + stateData[index + 1]['deaths'].toString(),
+                  'Confirmed Cases:' +
+                      stateData[index + 1]['confirmed'].toString() +
+                      ' +' +
+                      stateData[index + 1]['deltaconfirmed'].toString(),
                   style:
                       TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 )
