@@ -82,7 +82,7 @@ class _AboutUsState extends State<AboutUs> {
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.twitter),
                           onPressed: () {
-                            launch('http://www.instagram.com');
+                            launch('https://twitter.com/Prashant_1246');
                           }),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.github),
